@@ -1,0 +1,77 @@
+/* media query */
+@mixin media-query($media)
+	@if $media == 'desktop'
+		@media only screen and (min-width: $desktop-min) and (max-width: $desktop-max)
+			@content
+	@else if $media == 'tablet'
+		@media only screen and (min-width: $tablet-min) and (max-width: $tablet-max)
+			@content
+	@else if $media == 'large-mobile'
+		@media only screen and (min-width: $mobile-large-min) and (max-width: $mobile-large-max)
+			@content
+	@else if $media == 'small-mobile'
+		@media only screen and (max-width: $mobile-small-max)
+			@content
+
+/* generate grid */
+@mixin generate-grid($columns, $full-width, $gutter, $unit, $is-mobile: false, $is-fluid: false)
+	$unit: unquote($unit)
+	$col-width: ($full-width / $columns) - $gutter
+	$col-gutter: $gutter / 2
+
+	.container
+		margin: 0 auto
+
+		@if ($is-fluid)
+			width: auto
+			@if ($gutter != 0)
+				padding-left: #{$gutter}$unit
+				padding-right: #{$gutter}$unit
+		@else
+			width: #{$full-width}$unit
+
+	.alpha
+		margin-left: 0
+
+	.omega
+		margin-right: 0
+
+	.row
+		@if ($is-mobile)
+			margin-bottom: 0
+		@else
+			margin-bottom: #{$gutter}$unit
+
+
+	@for $i from 1 through $columns
+		$colWidth: ($col-width * $i) + ($gutter * $i)
+
+		.col-#{$i}
+			@if ($is-mobile)
+				margin-bottom: #{$gutter}$unit
+
+				@if ($is-fluid)
+
+				@else
+			@else
+				@if ($gutter != 0)
+					margin-left: #{$col-gutter}$unit
+					margin-right: #{$col-gutter}$unit
+				width: #{$colWidth - $gutter}$unit
+				float: left
+
+		.push-left-#{$i}
+			margin-left: #{$colWidth}$unit
+
+		.pull-left-#{$i}
+			margin-left: -#{$colWidth}$unit
+
+
+/* generate font face */
+@mixin font-face($font-family: 'icon-font', $font-weight: 400, $font-style: 'normal', $font-filename: 'font', $font-path: '../fonts/')
+	@font-face
+		font-family: $font-family
+		src: url('#{unquote($font-path)}#{$font-filename}.eot')
+		src: url('#{unquote($font-path)}#{$font-filename}.eot?#iefix') format('embedded-opentype'), url('#{unquote($font-path)}#{$font-filename}.woff') format('woff'), url('#{unquote($font-path)}#{$font-filename}.ttf') format('truetype'), url('#{unquote($font-path)}#{$font-filename}.svg##{unquote($font-family)}') format('svg')
+		font-style: $font-weight
+		font-weight: unquote($font-style)

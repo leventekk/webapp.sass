@@ -1,0 +1,24 @@
+{
+	"name": "webapp.sass",
+	"main": "webapp.sass",
+	"version": "0.0.1",
+	"homepage": "https://github.com/leventekk/webapp.sass",
+	"author": "Levente Kiraly (http://leventekk.com)",
+	"description": "Personalized webapp bootstrap package",
+	"main": "style.sass",
+	"keywords": [
+		"sass",
+		"bootstrap",
+		"starter pack"
+	],
+	"dependencies": {
+		"normalize.sass": "git@github.com:leventekk/normalize.sass.git"
+		},
+	"devDependencies": {},
+	"license": "GPL",
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+	]
+}

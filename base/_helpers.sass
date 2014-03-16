@@ -1,0 +1,66 @@
+.pull-left
+	float: left
+
+.pull-right
+	float: right
+
+// text helpers
+.text-right
+	text-align: right
+
+.text-left
+	text-align: left
+
+.text-center
+	text-align: center
+
+
+// display helpers
+.block-level
+	display: block
+
+.hidden
+	display: none !important
+	visibility: hidden
+
+.invisible
+	visibility: hidden
+
+.visuallyhidden
+	position: absolute
+	margin: -1px
+	border: 0
+	padding: 0
+	width: 1px
+	height: 1px
+	overflow: hidden
+	clip: rect(0 0 0 0)
+
+	&.focusable
+		&:active,
+		&:focus
+			position: static
+			margin: 0
+			width: auto
+			height: auto
+			clip: auto
+			overflow: visible
+
+.ir
+	border: 0
+	background-color: transparent
+	overflow: hidden
+
+	&:before
+		content: ''
+		display: block
+		width: 0
+		height: 150%
+
+.clearfix
+	&:after,
+	&:before
+		content: " "
+		display: table
+	&:after
+		clear: both
