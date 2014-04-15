@@ -1,6 +1,10 @@
+@if ($font-rem-size)
+	html
+		font-size: $font-rem-size
+
 body
 	background: $background-base-color
-	font: 400 #{$font-base-size}/#{$font-base-line-height} $font-base-family
+	font: $font-base-weight #{$font-base-size}/#{$font-base-line-height} $font-base-family
 	color: $color-base-font
 
 a
