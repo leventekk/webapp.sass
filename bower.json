@@ -11,13 +11,14 @@
 		"starter pack"
 	],
 	"dependencies": {
-		"normalize.sass": "git@github.com:leventekk/normalize.sass.git"
+		"normalize.sass": "https://github.com/leventekk/normalize.sass.git",
+		"modernizr-mixin": "https://github.com/danielguillan/modernizr-mixin.git"
 		},
 	"devDependencies": {},
 	"license": "GPL",
 	"ignore": [
 		"**/.*",
 		"node_modules",
-		"bower_components",
+		"bower_components"
 	]
 }
