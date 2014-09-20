@@ -1,0 +1,19 @@
+// Calculat em size
+// @function em
+// @param $base {Number} parent font size
+// @param $size {Number} wanted font size
+// @usage:
+// em(14, 20)
+// @return {String} em sized size
+@function em($base, $size)
+  @return ($size / $base) * 1em
+
+
+// Get z-index
+// @function z
+// @param $key {String} z-index key
+// @usage:
+// z(header)
+// @return {Number} z-index value
+@function z($key)
+  @return map-get($z-indexes, $key)

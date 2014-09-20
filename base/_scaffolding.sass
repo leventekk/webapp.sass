@@ -1,0 +1,44 @@
+@if ($font-rem-size)
+	html
+		font-size: $font-rem-size
+
+body
+	background: $background-base-color
+	font: $font-base-weight #{$font-base-size}/#{$font-base-line-height} $font-base-family
+	color: $color-base-font
+
+// Scaffolding
+// ===========================
+*,
+*:before,
+*:after
+	box-sizing: border-box
+
+ul,
+ol
+	margin: 0
+	padding: 0
+	list-style: none
+
+figure
+	margin: 0
+
+img
+	display: block
+	height: auto
+	max-width: 100%
+
+fieldset
+	margin-right: 0
+	margin-left: 0
+	border: 0
+	padding: 0
+
+input[type="search"]
+	appearance: none
+	-webkit-appearance: none
+	border-radius: 0
+
+a
+	text-decoration: none
+	color: $color-link
