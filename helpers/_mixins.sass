@@ -1,19 +1,42 @@
-/* media query */
-@mixin media-query($media)
-	@if $media == 'desktop'
-		@media only screen and (min-width: $desktop-min) and (max-width: $desktop-max)
-			@content
-	@else if $media == 'tablet'
-		@media only screen and (min-width: $tablet-min) and (max-width: $tablet-max)
-			@content
-	@else if $media == 'large-mobile'
-		@media only screen and (min-width: $mobile-large-min) and (max-width: $mobile-large-max)
-			@content
-	@else if $media == 'small-mobile'
-		@media only screen and (max-width: $mobile-small-max)
-			@content
+// REM font-size
+// ======================================================
+@mixin rem-size($property: false, $size: false)
+  $size: $size / ($size * 0 + 1) // remove unit
 
-/* generate grid */
+  @if $property == false
+  	@warn 'Missing property'
+
+  @if $size == false
+  	@warn 'Missing size'
+
+  @include yep(cssremunit)
+    #{$property}: ($size / 10) * 1rem
+
+  @include nope(cssremunit)
+    #{$property}: $size * 1px
+
+// Media queries
+// ======================================================
+@mixin media-query($media)
+  @if $media == 'desktop'
+    @media only screen and (min-width: $breakpoint-desktop)
+      @content
+  @else if $media == 'small-mobile'
+    @media only screen and (max-width: $breakpoint-mobile)
+      @content
+
+// Media query aliases
+// ======================================================
+@mixin desktop
+  @include media-query('desktop')
+    @content
+
+@mixin mobile
+  @include media-query('mobile')
+    @content
+
+// Generate grid
+// ======================================================
 @mixin generate-grid($columns, $full-width, $gutter, $unit, $is-mobile: false, $is-fluid: false)
 	$unit: unquote($unit)
 	$col-width: ($full-width / $columns) - $gutter
@@ -67,7 +90,8 @@
 			margin-left: -#{$colWidth}$unit
 
 
-/* generate font face */
+// Font face generator
+// ======================================================
 @mixin font-face($font-family: 'icon-font', $font-weight: 400, $font-style: 'normal', $font-filename: 'font', $font-path: '../fonts/')
 	@font-face
 		font-family: $font-family
