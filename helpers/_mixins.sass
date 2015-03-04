@@ -1,38 +1,11 @@
-// REM font-size
-// ======================================================
-@mixin rem-size($property: false, $size: false)
-  $size: $size / ($size * 0 + 1) // remove unit
-
-  @if $property == false
-  	@warn 'Missing property'
-
-  @if $size == false
-  	@warn 'Missing size'
-
-  @include yep(cssremunit)
-    #{$property}: ($size / 10) * 1rem
-
-  @include nope(cssremunit)
-    #{$property}: $size * 1px
-
-// Media queries
-// ======================================================
-@mixin media-query($media)
-  @if $media == 'desktop'
-    @media only screen and (min-width: $breakpoint-desktop)
-      @content
-  @else if $media == 'small-mobile'
-    @media only screen and (max-width: $breakpoint-mobile)
-      @content
-
 // Media query aliases
 // ======================================================
 @mixin desktop
-  @include media-query('desktop')
+  @include breakpoint($breakpoint-desktop)
     @content
 
 @mixin mobile
-  @include media-query('mobile')
+  @include breakpoint($breakpoint-mobile)
     @content
 
 // Generate grid

@@ -11,8 +11,9 @@
 		"starter pack"
 	],
 	"dependencies": {
-		"normalize.sass": "https://github.com/leventekk/normalize.sass.git",
-		"modernizr-mixin": "https://github.com/danielguillan/modernizr-mixin.git"
+		"normalize.sass": "leventekk/normalize.sass",
+		"modernizr-mixin": "danielguillan/modernizr-mixin",
+		"breakpoint": "at-import/breakpoint"
 		},
 	"devDependencies": {},
 	"license": "GPL",
