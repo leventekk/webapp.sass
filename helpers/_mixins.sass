@@ -9,58 +9,46 @@
     @content
 
 // Generate grid
+// @param $column-width {Number} Column width in px
+// @param $column-count {Number} Columns count
+// @param $gutter-size  {Number} Gutter size in px
 // ======================================================
-@mixin generate-grid($columns, $full-width, $gutter, $unit, $is-mobile: false, $is-fluid: false)
-	$unit: unquote($unit)
-	$col-width: ($full-width / $columns) - $gutter
-	$col-gutter: $gutter / 2
+@mixin grid($column-width, $column-count, $gutter-size)
+  $gutter: $gutter-size
 
-	.container
-		margin: 0 auto
+  @if length($gutter-size) == 2
+    $gutter: nth($gutter-size, 1) + nth($gutter-size, 2)
 
-		@if ($is-fluid)
-			width: auto
-			@if ($gutter != 0)
-				padding-left: #{$gutter}$unit
-				padding-right: #{$gutter}$unit
-		@else
-			width: #{$full-width}$unit
+  @for $i from 1 through $column-count
+    $column: col($column-width, $i, $gutter)
 
-	.alpha
-		margin-left: 0
+    .col-#{$i}
+      width: $column
+      @if length($gutter-size) == 2
+        margin-left: nth($gutter-size, 1) * 1px
+        margin-right: nth($gutter-size, 2) * 1px
+      @else
+        margin-left: $gutter-size * 1px
+      float: left
 
-	.omega
-		margin-right: 0
+      @if length($gutter-size) == 1
+        &:first-child
+          margin-left: 0
 
-	.row
-		@if ($is-mobile)
-			margin-bottom: 0
-		@else
-			margin-bottom: #{$gutter}$unit
+    .push-left-#{$i}
+      margin-left: $column
 
+  .container
+    margin: 0 auto
+    max-width: col($column-width, $column-count, $gutter, true)
 
-	@for $i from 1 through $columns
-		$colWidth: ($col-width * $i) + ($gutter * $i)
+  // .row
+  //   margin-bottom: $gutter * 1px
 
-		.col-#{$i}
-			@if ($is-mobile)
-				margin-bottom: #{$gutter}$unit
-
-				@if ($is-fluid)
-
-				@else
-			@else
-				@if ($gutter != 0)
-					margin-left: #{$col-gutter}$unit
-					margin-right: #{$col-gutter}$unit
-				width: #{$colWidth - $gutter}$unit
-				float: left
-
-		.push-left-#{$i}
-			margin-left: #{$colWidth}$unit
-
-		.pull-left-#{$i}
-			margin-left: -#{$colWidth}$unit
+  @if length($gutter-size) == 2
+    .grid
+      margin-left: nth($gutter-size, 1) * -1px
+      margin-right: nth($gutter-size, 2) * -1px
 
 
 // Font face generator
