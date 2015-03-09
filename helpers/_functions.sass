@@ -16,7 +16,7 @@
 // z(header)
 // @return {Number} z-index value
 @function z($key)
-  @return map-get($z-indexes, $key)
+  @return map-get($z-index, $key)
 
 
 // String unit from a string
@@ -36,17 +36,12 @@
 // @param $column-width {Number} column width
 // @param $size {Number} column count
 // @param $gutter-size {Number} gutter size
-// @param $is-container {Boolean} Is container
 //
 // @return {String} column width in pixel
-@function col($column-width, $size, $gutter-size, $is-container: false)
-  $column-count: $size - 1
+@function col($column-width, $size, $gutter-size)
   $gutter: $gutter-size
 
   @if length($gutter-size) == 2
     $gutter: nth($gutter-size, 1) + nth($gutter-size, 2)
 
-  @if $is-container == true
-    $column-count: $size
-
-  @return ($column-width * $size) + ($gutter * $column-count) * 1px
+  @return ($column-width * $size) + ($gutter * ($size - 1) ) * 1px
