@@ -1,25 +1,26 @@
 {
-	"name": "webapp.sass",
-	"version": "0.0.1",
-	"homepage": "https://github.com/leventekk/webapp.sass",
-	"author": "Levente Kiraly (http://leventekk.com)",
-	"description": "Personalized webapp bootstrap package",
-	"main": "style.sass",
-	"keywords": [
-		"sass",
-		"bootstrap",
-		"starter pack"
-	],
-	"dependencies": {
-		"normalize.sass": "leventekk/normalize.sass",
-		"modernizr-mixin": "danielguillan/modernizr-mixin",
-		"breakpoint": "at-import/breakpoint"
-		},
-	"devDependencies": {},
-	"license": "GPL",
-	"ignore": [
-		"**/.*",
-		"node_modules",
-		"bower_components"
-	]
+  "name": "webapp.sass",
+  "version": "0.0.1",
+  "homepage": "https://github.com/leventekk/webapp.sass",
+  "author": "Levente Kiraly (http://leventekk.com)",
+  "description": "Personalized webapp bootstrap package",
+  "main": "style.sass",
+  "keywords": [
+    "sass",
+    "bootstrap",
+    "starter pack"
+  ],
+  "dependencies": {
+    "normalize.sass": "leventekk/normalize.sass",
+    "modernizr-mixin": "danielguillan/modernizr-mixin",
+    "breakpoint": "at-import/breakpoint",
+    "gridle": "~1.3.38"
+  },
+  "devDependencies": {},
+  "license": "GPL",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ]
 }

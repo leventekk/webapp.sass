@@ -8,59 +8,12 @@
   @include breakpoint($breakpoint-mobile)
     @content
 
-// Generate grid
-// @param $column-width {Number} Column width in px
-// @param $column-count {Number} Columns count
-// @param $gutter-size  {Number} Gutter size in px
-// ======================================================
-@mixin grid($column-width, $column-count, $gutter-size)
-  $gutter: $gutter-size
-
-  @if length($gutter-size) == 2
-    $gutter: nth($gutter-size, 1) + nth($gutter-size, 2)
-
-  @for $i from 1 through $column-count
-    $column: col($column-width, $i, $gutter)
-
-    .col-#{$i}
-      width: $column
-      @if length($gutter-size) == 2
-        margin-left: nth($gutter-size, 1) * 1px
-        margin-right: nth($gutter-size, 2) * 1px
-      @else
-        margin-left: $gutter-size * 1px
-      float: left
-
-      @if length($gutter-size) == 1
-        &:first-child
-          margin-left: 0
-
-    .push-left-#{$i}
-      margin-left: $column
-
-  .container
-    margin: 0 auto
-    max-width: col($column-width, $column-count, $gutter)
-
-  @if length($gutter-size) == 2
-    .grid
-      margin-left: nth($gutter-size, 1) * -1px
-      margin-right: nth($gutter-size, 2) * -1px
-
-
 // Font face generator
 // ======================================================
 @mixin font-face($font-family: 'icon-font', $font-weight: 400, $font-style: 'normal', $font-filename: 'font', $font-path: '../fonts/')
-	@font-face
-		font-family: $font-family
-		src: url('#{unquote($font-path)}#{$font-filename}.eot')
-		src: url('#{unquote($font-path)}#{$font-filename}.eot?#iefix') format('embedded-opentype'), url('#{unquote($font-path)}#{$font-filename}.woff') format('woff'), url('#{unquote($font-path)}#{$font-filename}.ttf') format('truetype'), url('#{unquote($font-path)}#{$font-filename}.svg##{unquote($font-family)}') format('svg')
-		font-style: unquote($font-style)
-		font-weight: unquote($font-weight)
-
-  @media screen and (-webkit-min-device-pixel-ratio: 0)
-    @font-face
-      font-family: $font-family
-      src: url('#{unquote($font-path)}#{$font-filename}.svg') format('svg')
-      font-style: unquote($font-style)
-      font-weight: unquote($font-weight)
+  @font-face
+    font-family: $font-family
+    src: url('#{unquote($font-path)}#{$font-filename}.eot')
+    src: url('#{unquote($font-path)}#{$font-filename}.eot?#iefix') format('embedded-opentype'), url('#{unquote($font-path)}#{$font-filename}.woff') format('woff'), url('#{unquote($font-path)}#{$font-filename}.ttf') format('truetype'), url('#{unquote($font-path)}#{$font-filename}.svg##{unquote($font-family)}') format('svg')
+    font-style: unquote($font-style)
+    font-weight: unquote($font-weight)
