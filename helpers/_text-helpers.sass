@@ -2,16 +2,17 @@
 // ============
 
 // Align to right
-.text--right
-  text-align: right
+.text
+  &--right
+    text-align: right
 
-// Align to left
-.text--left
-  text-align: left
+  // Align to left
+  &--left
+    text-align: left
 
-// Align to center
-.text--center
-  text-align: center
+  // Align to center
+  &--center
+    text-align: center
 
 // Image replacement
 .ir
@@ -19,7 +20,7 @@
   background-color: transparent
   overflow: hidden
 
-  &:before
+  &::before
     content: ''
     display: block
     width: 0

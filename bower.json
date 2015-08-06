@@ -11,10 +11,10 @@
     "starter pack"
   ],
   "dependencies": {
-    "normalize.sass": "leventekk/normalize.sass",
+    "normalize.sass": "leventekk/normalize.sass#3.0.0",
     "modernizr-mixin": "danielguillan/modernizr-mixin",
     "breakpoint": "at-import/breakpoint",
-    "gridle": "~1.3.38"
+    "gridle": "~1.3.40"
   },
   "devDependencies": {},
   "license": "GPL",

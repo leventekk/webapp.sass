@@ -1,12 +1,74 @@
 // Media query aliases
 // ======================================================
 @mixin desktop
-  @include breakpoint($breakpoint-desktop)
+  +breakpoint($breakpoint-desktop)
+    @content
+
+@mixin tablet
+  +breakpoint($breakpoint-tablet)
     @content
 
 @mixin mobile
-  @include breakpoint($breakpoint-mobile)
+  +breakpoint($breakpoint-mobile)
     @content
+
+// Layout generator
+// ======================================================
+@mixin layout($column-count, $gutter)
+  $column-width: 100 / $column-count
+
+  $full-gutter: $gutter
+  $unitless-gutter: strip-units($gutter) / 2
+  $gutter: em($unitless-gutter)
+
+  @for $i from 1 through $column-count
+    $column: to-percentage($column-width * $i)
+
+    .col-#{$i}
+      padding-left: $gutter
+      padding-right: $gutter
+      width: $column
+      float: left
+      box-sizing: border-box
+
+    .prefix-#{$i}
+      margin-left: $column
+
+    .push-#{$i}
+      left: $column
+
+  .container
+    margin-right: em($unitless-gutter * -1)
+    margin-left: em($unitless-gutter * -1)
+    @extend .clearfix
+
+  .row
+    margin-bottom: em($full-gutter)
+
+  .centered
+    margin-right: auto
+    margin-left: auto
+    float: none
+
+  .no-gutter
+    padding-right: 0
+    padding-left: 0
+
+    &--right
+      padding-right: 0
+
+    &--left
+      padding-left: 0
+
+  .gutter
+    padding-right: $gutter
+    padding-left: $gutter
+
+    &--right
+      padding-right: $gutter
+
+    &--left
+      padding-left: $gutter
 
 // Font face generator
 // ======================================================

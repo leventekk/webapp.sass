@@ -43,3 +43,25 @@
 // @return {Number} Unitless number
 @function strip-units($number)
   @return $number / ($number * 0 + 1)
+
+// To pixel
+//
+// @function to-pixel
+// @param $number {String|Number} value
+// @usage
+// to-pixel(13)
+//
+// @return {String} Number with pixel unit
+@function to-pixel($number)
+  @return strip-units($number) * 1px
+
+// To percentage
+//
+// @function to-percentage
+// @param $number {String|Number} value
+// @usage
+// to-percentage(13)
+//
+// @return {String} Number with percentage unit
+@function to-percentage($number)
+  @return strip-units($number) * 1%

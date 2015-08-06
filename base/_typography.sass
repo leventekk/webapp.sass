@@ -1,23 +1,27 @@
-h1
-  margin: em(15, 30) 0
-  font-size: em(30)
+$headings-font-family-declaration: ()
 
-h2
-  margin: em(13, 25) 0
-  font-size: em(25)
+@for $i from 1 through length($type-settings)
+  $settings: nth($type-settings, $i)
 
-h3
-  margin: em(10, 20) 0
-  font-size: em(20)
+  $font-size: nth($settings, 1)
+  $font-weight: nth($settings, 2)
+  $font-style: unquote(nth($settings, 3))
+  $margins: nth($settings, 4)
 
-h4
-  margin: em(7, 15) 0
-  font-size: em(15)
+  $headings-font-family-declaration: append($headings-font-family-declaration, unquote('h#{$i}'), 'comma')
+  $headings-font-family-declaration: append($headings-font-family-declaration, unquote('.h#{$i}'), 'comma')
 
-h5
-  margin: em(5, 13) 0
-  font-size: em(13)
+  $margin: ()
 
-h6
-  margin: em(2, 10) 0
-  font-size: em(10)
+  @each $margin-size in $margins
+    $margin: append($margin, em($margin-size, $font-size))
+
+  h#{$i},
+  .h#{$i}
+    margin: $margin
+    font-size: em($font-size)
+    font-weight: $font-weight
+    font-style: $font-style
+
+#{$headings-font-family-declaration}
+  font-family: $font-stack-secondary

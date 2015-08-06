@@ -1,27 +1,41 @@
 // Float left
-.pull--left
-  float: left
+.pull
+  &--left
+    float: left
 
-// Float right
-.pull--right
-  float: right
+  // Float right
+  &--right
+    float: right
 
 // Block level
-.level--block
-  display: block
+.level
+  &--block
+    display: block
 
-// Inline level
-.level--inline
-  display: inline
+  // Inline level
+  &--inline
+    display: inline
 
-// Inline block level
-.level-inline-block
-  display: inline-block
+  // Inline block level
+  &--inline-block
+    display: inline-block
 
 // Hide
 .hidden
   display: none !important
   visibility: hidden
+
+  &--desktop
+    +desktop
+      display: none
+
+  &--tablet
+    +talbet
+      display: none
+
+  &--mobile
+    +mobile
+      display: none
 
 .invisible
   visibility: hidden
@@ -49,8 +63,8 @@
 // Clearfix
 // ============
 .clearfix
-  &:after,
-  &:before
+  &::after,
+  &::before
     content: ' '
     display: table
 

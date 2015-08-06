@@ -1,6 +1,6 @@
 // Breakpoint
 // ======================================================
-$breakpoint-to-ems: true
++breakpoint-set('to ems', true)
 
 // Typography
 // ======================================================
@@ -10,12 +10,11 @@ $font-size-mobile: 10px
 $font-line-height-base: 1.57
 $font-weight-base: 400
 
-$icon-font-name: 'Port Icons'
+$icon-font-name: 'Icons'
 
-// Colors
-// ======================================================
-$white: #fff
-$black: #000
+//                h1                            h2                            h3                            h4                           h5                           h6
+$type-settings: ( (48, 800, 'italic', (30, 0)), (32, 800, 'italic', (25, 0)), (26, 800, 'italic', (25, 0)), (20, 900, 'italic', (20, 0)), (18, 900, 'italic', (15, 0)), (16, 900, 'italic', (10, 0)) )
+
 
 // Basic variables
 // ======================================================
@@ -25,15 +24,21 @@ $default-padding: 20px
 // ======================================================
 $icons: (  )
 
-// Images
+// Paths
 // ======================================================
-$images-root: '../images/'
+$images-root: '../assets/images/'
+$fonts: '../assets/fonts/'
 
 // Breakpoints
 // ======================================================
 $breakpoint-desktop: 1024px
-$breakpoint-mobile: 1023px
-$breakpoint-mobile-small: 640px
+$breakpoint-tablet: max-width 1023px
+$breakpoint-mobile: max-width 640px
+
+// Grid
+// ======================================================
+$grid-column: 12
+$grid-gutter: 24px
 
 // Z-index
 // ======================================================
